@@ -1,0 +1,25 @@
+services:
+  api:
+    build: .
+    container_name: iol_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    container_name: iol_db
+    environment:
+      POSTGRES_DB: iol_db
+      POSTGRES_USER: iol_user
+      POSTGRES_PASSWORD: iol_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
