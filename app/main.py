@@ -4,6 +4,11 @@ from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.db.dependencies import get_db
+from app.api.assets import router as asset_router
+
+# from app.db.session import Base, engine
+from app.api.assets import router as asset_router
+from app.models.asset import Asset  # noqa: F401
 
 
 app = FastAPI(
@@ -11,6 +16,10 @@ app = FastAPI(
     version=settings.APP_VERSION,
     description="Backend API for investment automation and portfolio analysis.",
 )
+# se reemplaza por alembic
+# Base.metadata.create_all(bind=engine)
+
+app.include_router(asset_router)
 
 
 @app.get("/")
