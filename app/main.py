@@ -7,7 +7,7 @@ from app.db.dependencies import get_db
 from app.api.assets import router as asset_router
 
 # from app.db.session import Base, engine
-from app.api.assets import router as asset_router
+from app.api.strategies import router as strategy_router
 from app.models.asset import Asset  # noqa: F401
 
 
@@ -20,6 +20,7 @@ app = FastAPI(
 # Base.metadata.create_all(bind=engine)
 
 app.include_router(asset_router)
+app.include_router(strategy_router)
 
 
 @app.get("/")
