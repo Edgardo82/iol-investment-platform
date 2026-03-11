@@ -5,10 +5,12 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.db.dependencies import get_db
 from app.api.assets import router as asset_router
+from app.api.strategies import router as strategy_router
+from app.api.signals import router as signal_router
+from app.api.orders import router as order_router
+from app.models.asset import Asset  # noqa: F401
 
 # from app.db.session import Base, engine
-from app.api.strategies import router as strategy_router
-from app.models.asset import Asset  # noqa: F401
 
 
 app = FastAPI(
@@ -21,6 +23,8 @@ app = FastAPI(
 
 app.include_router(asset_router)
 app.include_router(strategy_router)
+app.include_router(signal_router)
+app.include_router(order_router)
 
 
 @app.get("/")

@@ -22,6 +22,8 @@ if config.config_file_name is not None:
 from app.db.session import Base
 from app.models.asset import Asset  # noqa: F401
 from app.models.strategy import Strategy  # noqa: F401
+from app.models.signal import Signal  # noqa: F401
+from app.models.order import Order  # noqa: F401
 
 target_metadata = Base.metadata
 
