@@ -24,6 +24,7 @@ from app.models.asset import Asset  # noqa: F401
 from app.models.strategy import Strategy  # noqa: F401
 from app.models.signal import Signal  # noqa: F401
 from app.models.order import Order  # noqa: F401
+from app.models.position import Position  # noqa: F401
 
 target_metadata = Base.metadata
 

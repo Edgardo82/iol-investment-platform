@@ -36,3 +36,10 @@ class OrderResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class OrderStatusUpdate(BaseModel):
+    status: OrderStatus
+    executed_price: Decimal | None = None
+    broker_order_id: str | None = None
+    notes: str | None = None
